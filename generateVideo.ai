@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Video Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        textarea {
+            width: 80%;
+            height: 100px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        video {
+            margin-top: 20px;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <h1>AI Video Generator</h1>
+    <p>Enter a description, and the AI will generate a video:</p>
+    <textarea id="inputText" placeholder="Describe your scene..."></textarea><br>
+    <button onclick="generateVideo()">Generate Video</button>
+    <div id="videoContainer"></div>
+
+    <script>
+        async function generateVideo() {
+            const description = document.getElementById('inputText').value;
+            if (!description) {
+                alert('Please enter a description!');
+                return;
+            }
+            
+            // Placeholder for API request (Replace with an actual AI video API)
+            const videoUrl = await mockApiCall(description);
+            
+            const videoContainer = document.getElementById('videoContainer');
+            videoContainer.innerHTML = `<video controls><source src="${videoUrl}" type="video/mp4">Your browser does not support the video tag.</video>`;
+        }
+        
+        async function mockApiCall(description) {
+            console.log("Generating video for:", description);
+            return "https://www.w3schools.com/html/mov_bbb.mp4"; // Placeholder video URL
+        }
+    </script>
+</body>
+</html>
